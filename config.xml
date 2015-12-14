@@ -77,11 +77,12 @@
         <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
         <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
     </platform>
+
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
-    <plugin name="cordova-plugin-transport-security" spec="~0.1.1" />
     <plugin name="cordova-plugin-media" spec="~1.0.1" />
 
+    <!-- Set light status bar content to display on dark theme -->
     <preference name="StatusBarStyle" value="lightcontent" />
 
 </widget>
