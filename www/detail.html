@@ -106,8 +106,8 @@
         <ons-list-item>
             <ons-row>
                 <ons-col ng-show="detail.selItem.description!=undefined">
-                    <ons-scroller style="height: 150px; width: 100%">
-                        {{detail.selItem.description}}
+                    <ons-scroller style="height: 150px; width: 100%; line-height: 1.2rem">
+                        {{detail.getParsedDesc()}}
                     </ons-scroller>
                 </ons-col>
             </ons-row>

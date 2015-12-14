@@ -41,6 +41,17 @@ mediaApp.controller('ListController', function (ItemsModel) {
 
 mediaApp.controller('DetailController', function (ItemsModel) {
     this.selItem = ItemsModel.getSelectedItem();
+    console.log("Item description " + this.selItem.description);
+    //this.selItem = ItemsModel.getSelectedItem();
+
+    this.getParsedDesc = function() {
+        console.log("Item description " + this.selItem.description);
+        var parser=new DOMParser();
+        var htmlDoc=parser.parseFromString(this.selItem.description, "text/html");
+        console.log("PARSED description " + htmlDoc.firstChild.innerText);
+        this.desc = htmlDoc.firstChild.innerText;
+        return this.desc;
+    }
 })
 
 mediaApp.controller('MenuController', function (ItemsModel) {
