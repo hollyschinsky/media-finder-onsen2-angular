@@ -5,7 +5,7 @@
         A sample app to show the use of Onsen UI Beta 2 with AngularJS. Find media using the iTunes Search API and play it.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Adobe PhoneGap Team
+        Holly Schinsky
     </author>
     <content src="index.html" />
 
@@ -16,13 +16,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <platform name="android">
-        <allow-intent href="market:*" />
-    </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
+
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="DisallowOverscroll" value="true" />
     <platform name="android">
@@ -68,9 +62,6 @@
         <icon src="resources/ios/icon/icon-small@3x.png" width="87" height="87"/>
         <splash src="resources/ios/splash/Default-568h@2x~iphone.png" width="640" height="1136"/>
         <splash src="resources/ios/splash/Default-667h.png" width="750" height="1334"/>
-        <splash src="resources/ios/splash/Default-736h.png" width="1242" height="2208"/>
-        <splash src="resources/ios/splash/Default-Landscape-736h.png" width="2208" height="1242"/>
-        <splash src="resources/ios/splash/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
         <splash src="resources/ios/splash/Default-Landscape~ipad.png" width="1024" height="768"/>
         <splash src="resources/ios/splash/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
         <splash src="resources/ios/splash/Default-Portrait~ipad.png" width="768" height="1024"/>
