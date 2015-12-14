@@ -1,0 +1,116 @@
+<!-- Item Detail Page -->
+<ons-page ng-controller="DetailController as detail">
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">Media Details</div>
+        <div class="right">
+            <ons-toolbar-button ng-click="myNavigator.pushPage('home.html', { animation : 'fade' });">
+                <ons-icon icon="ion-home"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+
+    <ons-list>
+        <ons-list-header>Media Details</ons-list-header>
+        <ons-list-item style="padding-top: 5px">
+            <ons-row>
+                <ons-col>
+                    <img ng-src="{{detail.selItem.artworkUrl100}}">
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+        <ons-list-item ng-hide="detail.selItem.trackName==undefined">
+            <ons-row>
+                <ons-col>
+                    Track Name
+                </ons-col>
+                <ons-col>
+                    <label>{{detail.selItem.trackName}}</label>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+        <ons-list-item ng-hide="detail.selItem.trackPrice==undefined">
+            <ons-row>
+                <ons-col>
+                    Track Price
+                </ons-col>
+                <ons-col>
+                    <label ng-show="detail.selItem.trackPrice>-1">${{detail.selItem.trackPrice}}</label>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+        <ons-list-item>
+            <ons-row>
+                <ons-col>
+                    Artist
+                </ons-col>
+                <ons-col>
+                    <label>{{detail.selItem.artistName}}</label>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+        <ons-list-item>
+            <ons-row>
+                <ons-col>
+                    Genre
+                </ons-col>
+                <ons-col>
+                    <label>{{detail.selItem.primaryGenreName}}</label>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+        <ons-list-item>
+            <ons-row>
+                <ons-col>
+                    Track Explicitness
+                </ons-col>
+                <ons-col>
+                    <label>{{detail.selItem.trackExplicitness}}</label>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+        <ons-list-header>Collection Details</ons-list-header>
+        <ons-list-item>
+            <ons-row>
+                <ons-col>
+                    Collection Name
+                </ons-col>
+                <ons-col>
+                    <label>{{detail.selItem.collectionName}}</label>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+        <ons-list-item>
+            <ons-row>
+                <ons-col>
+                    Collection Price
+                </ons-col>
+                <ons-col>
+                    <label ng-show="detail.selItem.collectionPrice>-1">${{detail.selItem.collectionPrice}}</label>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+        <ons-list-header>Preview</ons-list-header>
+        <ons-list-item>
+            <ons-row>
+                <ons-col>
+                    <audio ng-hide="detail.selItem.kind=='music-video'" controls preload ng-src="{{detail.selItem.previewUrl}}"></audio>
+                    <video ng-show="detail.selItem.kind=='music-video'" width="320" height="180" preload controls>
+                        <source ng-src="{{detail.selItem.previewUrl}}" type="video/mp4">
+                    </video>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+        <ons-list-item>
+            <ons-row>
+                <ons-col ng-show="detail.selItem.description!=undefined">
+                    <ons-scroller style="height: 150px; width: 100%">
+                        {{detail.selItem.description}}
+                    </ons-scroller>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+    </ons-list>
+</ons-page>

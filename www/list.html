@@ -1,0 +1,24 @@
+<!-- List Results Page -->
+<ons-page ng-controller="ListController as list">
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">Media List</div>
+    </ons-toolbar>
+
+    <ons-list>
+        <ons-list-item style="padding-top: 5px">
+            <input class="search-input" ng-model="list.filterTerm">
+        </ons-list-item>
+        <ons-list-header>Search Results</ons-list-header>
+        <ons-list-item ng-repeat="item in list.mediaItems.results | orderBy:'trackName' | filter:list.filterTerm"
+                       ng-click="list.openDetail(item)">
+            <ons-row align="center">
+                <ons-col><img id="img" ng-src="{{item.artworkUrl60}}"/></ons-col>
+                <ons-col width="60%">{{(item.trackName != null) && item.trackName || item.collectionName}}</ons-col>
+                <ons-col>{{item.trackPrice>0?"$"+item.trackPrice:"N/A"}}</ons-col>
+            </ons-row>
+        </ons-list-item>
+    </ons-list>
+</ons-page>

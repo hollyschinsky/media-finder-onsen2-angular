@@ -1,0 +1,74 @@
+<!-- Define a modal popup to show how it's used. Triggered from Help Icon on Main screen -->
+<ons-modal var="modal">
+    <ons-icon id="modalIcon" icon="ion-close" ng-click="modal.hide()"></ons-icon>
+    <h3>Help Info</h3>
+    <p>1. Enter a search term (ie: a song, artist name)</p>
+    <p>2. Select the type of media you would like to search in iTunes</p>
+    <p>3. Choose the number of results to return</p>
+</ons-modal>
+
+<!-- Home Page - Search Criteria -->
+<ons-page ng-controller="MainController as main">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="app.menu.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Media Finder</div>
+        <div class="right">
+            <ons-toolbar-button ng-click="modal.show()">
+                <ons-icon icon="ion-help-circled"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+
+    <ons-list>
+        <ons-list-header>Search term</ons-list-header>
+        <ons-list-item  style="padding-top: 5px">
+           <input class="search-input" ng-model="main.searchTerm" id="my-input">
+        </ons-list-item>
+
+        <ons-list-header>Media Type</ons-list-header>
+        <ons-list-item ng-repeat="type in main.mediatypes">
+            <label class="radio-button">
+                <input type="radio" name="radio-primary" class="radio-button__input radio-button"
+                       ng-model="main.selType" ng-value="type.value"/>
+                <div class="radio-button__checkmark"></div>
+                {{type.title}}
+            </label>
+        </ons-list-item>
+
+        <ons-list-header>Number of Results</ons-list-header>
+        <ons-list-item>
+            <div class="button-bar" style="width:280px;">
+                <div class="button-bar__item">
+                    <input type="radio" name="segment-a" ng-model="main.numResults" ng-value="10">
+                    <button class="button-bar__button">10</button>
+                </div>
+
+                <div class="button-bar__item">
+                    <input type="radio" name="segment-a" ng-model="main.numResults" ng-value="25">
+                    <button class="button-bar__button">25</button>
+                </div>
+
+                <div class="button-bar__item">
+                    <input type="radio" name="segment-a" ng-model="main.numResults" ng-value="50">
+                    <button class="button-bar__button">50</button>
+                </div>
+            </div>
+        </ons-list-item>
+
+        <ons-list-header>Rating Check</ons-list-header>
+        <ons-list-item>
+            Allow Explicit Results
+            <ons-switch modifier="list-item" ng-model="main.allowExplicit" ng-checked="main.allowExplicit"></ons-switch>
+        </ons-list-item>
+
+        <ons-list-item style="text-align: center;">
+            <ons-button ng-click="main.search()">
+                Get Results!
+            </ons-button>
+        </ons-list-item>
+    </ons-list>
+</ons-page>

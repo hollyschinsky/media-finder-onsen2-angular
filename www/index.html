@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html ng-app="mediaApp">
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        -->
+        <!--<meta http-equiv="Content-Security-Policy" content="frame-src 'self'; default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500,700,700italic,500italic' rel='stylesheet' type='text/css'>
+        <title>iTunes Media Finder</title>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script src="lib/onsenui/js/onsenui.js"></script>
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/onsenui/js/angular-onsenui.js"></script>
+        <script src="js/app.js"></script>
+
+        <link rel="stylesheet" href="lib/onsenui/css/onsenui.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components-dark-theme.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="css/app.css" type="text/css" media="all" />
+    </head>
+    <body>
+
+    <ons-sliding-menu var="app.menu"  main-page="main.html" menu-page="menu.html" max-slide-distance="200px" type="reveal" side="left">
+    </ons-sliding-menu>
+
+    <ons-template id="main.html">
+        <ons-navigator title="Navigator" var="myNavigator" page="home.html">
+            <!-- pages loaded from ons-page definitions in html files dynamically - see app.js -->
+        </ons-navigator>
+    </ons-template>
+
+    </body>
+</html>

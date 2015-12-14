@@ -1,0 +1,9 @@
+.modal__content {
+    padding-left: 20px;
+    text-align: left;
+}
+#modalIcon {
+    position: absolute;
+    top: 18px;
+    right: 12px;
+}
